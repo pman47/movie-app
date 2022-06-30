@@ -1,0 +1,52 @@
+.movie {
+  cursor: pointer;
+  position: relative;
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.movie:hover img {
+  transform: scale(1.1) rotate(2deg);
+}
+
+.poster img {
+  transition: 0.2s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.poster::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.movie .movieDetails {
+  position: absolute;
+  padding: 0.5rem;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+}
+.movie .movieDetails .movieTitle {
+  margin-bottom: 0.5rem;
+}
+
+.movie .movieDetails .vote {
+  display: inline-block;
+  background-color: #ffff00;
+  font-weight: bold;
+  color: #000;
+  padding: 0.2rem 0.3rem;
+  border-radius: 0.3rem;
+}

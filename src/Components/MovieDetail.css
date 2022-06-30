@@ -1,0 +1,125 @@
+.movieMoreDetailContainer {
+  width: 100vw;
+  color: #fff;
+}
+
+.BackgroundContainer {
+  z-index: -11;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.BackgroundPoster {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.BackgroundContainer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.littleDetails {
+  text-align: center;
+  margin: 0 auto;
+  width: 90vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0.8;
+}
+
+.movieName {
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.tagline {
+  font-size: 2rem;
+}
+
+.moreDetail {
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.image_DetailContainer {
+  display: grid;
+  grid-template-columns: 30% 65%;
+  grid-gap: 1rem;
+}
+
+.image_DetailContainer .left img {
+  width: 100%;
+  height: 95vh;
+  object-fit: cover;
+}
+
+.right > * {
+  margin-bottom: 0.5rem;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.image_DetailContainer .right .title {
+  font-size: 3rem;
+}
+
+.image_DetailContainer .right .description {
+  font-size: 1.5rem;
+}
+
+.image_DetailContainer .right .releaseDate {
+  font-size: 1.4rem;
+}
+
+.image_DetailContainer .right .runtime {
+  font-size: 1.4rem;
+}
+
+.image_DetailContainer .right .voteDetails {
+  font-size: 1.2rem;
+}
+
+.image_DetailContainer .right .voteDetails .vote {
+  display: inline-block;
+  background: rgba(248, 225, 17, 0.993);
+  color: #000;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.genresContainer .gerne {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: rgb(58, 58, 58);
+  margin-left: 1rem;
+}
+
+@media (max-width: 700px) {
+  .image_DetailContainer {
+    display: inline-block;
+  }
+  .image_DetailContainer .left img {
+    height: 100%;
+  }
+  .image_DetailContainer .right .title {
+    margin-top: 1rem;
+  }
+}
