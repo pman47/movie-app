@@ -9,7 +9,9 @@ const Movie = ({ movieData }) => {
       <div className="movie">
         <div className="poster">
           <img
-            src={`https://image.tmdb.org/t/p/original${poster_path}`}
+            src={
+              poster_path && `https://image.tmdb.org/t/p/original${poster_path}`
+            }
             alt={title}
           />
         </div>

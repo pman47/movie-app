@@ -50,3 +50,10 @@
   padding: 0.2rem 0.3rem;
   border-radius: 0.3rem;
 }
+
+@media (max-width: 360px) {
+  .movie {
+    height: 250px;
+    font-size: 0.8rem;
+  }
+}

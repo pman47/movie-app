@@ -20,12 +20,16 @@ const MovieDetail = () => {
 
   if (movieData != null) {
     var backPoster =
-      "https://image.tmdb.org/t/p/original" + movieData.backdrop_path;
+      movieData.backdrop_path != null
+        ? "https://image.tmdb.org/t/p/original" + movieData.backdrop_path
+        : null;
     var title = movieData.title;
     var tagline = movieData.tagline;
     var des = movieData.overview;
     var frontPoster =
-      "https://image.tmdb.org/t/p/original" + movieData.poster_path;
+      movieData.poster_path != null
+        ? "https://image.tmdb.org/t/p/original" + movieData.poster_path
+        : null;
     var genres = movieData.genres;
     var release_date = movieData.release_date;
     var vote = movieData.vote_average;

@@ -7,8 +7,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<AllMovies />}></Route>
-        <Route path="/movie/:movieId" element={<MovieDetail />}></Route>
+        <Route path="/" element={<AllMovies />}>
+          <Route path=":searchQuery" element={<AllMovies />} />
+        </Route>
+        <Route path="/movie/:movieId" element={<MovieDetail />} />
       </Routes>
     </BrowserRouter>
   );
