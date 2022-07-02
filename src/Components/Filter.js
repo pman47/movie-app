@@ -24,7 +24,7 @@ const Filter = ({ movies, yearHandler }) => {
       navigate(`/${search}`);
     }, 700);
     return () => clearTimeout(timeOut);
-  }, [search]);
+  }, [search, navigate]);
 
   return (
     <div className="filterContainer">

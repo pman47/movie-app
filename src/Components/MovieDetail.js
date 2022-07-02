@@ -48,6 +48,7 @@ const MovieDetail = () => {
       <div className="littleDetails">
         <p className="movieName">{title}</p>
         {tagline && <p className="tagline">{tagline}</p>}
+        <div className="arrow"></div>
       </div>
 
       <div className="moreDetail">

@@ -41,6 +41,36 @@
   opacity: 0.8;
 }
 
+.arrow {
+  position: absolute;
+  bottom: 100px;
+  height: 25px;
+  width: 25px;
+  border-radius: 2px;
+  border-right: 5px solid #fff;
+  border-bottom: 5px solid #fff;
+  transform: rotate(45deg);
+  opacity: 0;
+  animation: arrow-down 1s infinite ease;
+}
+
+@keyframes arrow-down {
+  0% {
+    transform: rotate(45deg) translate(-20px, -20px);
+    opacity: 0;
+  }
+
+  80% {
+    transform: rotate(45deg) translate(0px, 0px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(45deg) translate(20px, 20px);
+    opacity: 0;
+  }
+}
+
 .movieName {
   font-weight: bold;
   font-size: 3rem;
@@ -138,5 +168,8 @@
   .genresContainer .gerne {
     margin: 0;
     margin: 0.5rem 0 0 1rem;
+  }
+  .arrow {
+    bottom: 20px;
   }
 }
