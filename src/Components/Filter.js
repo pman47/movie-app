@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
+import "./Filter.css";
 
 const Filter = ({ movies, yearHandler }) => {
   const { searchQuery } = useParams();
@@ -27,7 +28,19 @@ const Filter = ({ movies, yearHandler }) => {
 
   return (
     <div className="filterContainer">
-      <select onChange={(e) => yearHandler(e.target.value)}>
+      <input
+        className="searchMovieInput"
+        type="text"
+        placeholder="Enter Movie name"
+        value={search}
+        onChange={(e) => {
+          setSearch(e.target.value);
+        }}
+      />
+      <select
+        className="optionContainer"
+        onChange={(e) => yearHandler(e.target.value)}
+      >
         <option value="all">All</option>
         {years.map((year) => (
           <option value={year} key={Number(year)}>
@@ -35,16 +48,6 @@ const Filter = ({ movies, yearHandler }) => {
           </option>
         ))}
       </select>
-      <input
-        className="searchMovieInput"
-        type="text"
-        name="searchMovie"
-        placeholder="Enter Movie name"
-        value={search}
-        onChange={(e) => {
-          setSearch(e.target.value);
-        }}
-      />
     </div>
   );
 };
