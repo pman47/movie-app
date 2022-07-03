@@ -4,37 +4,27 @@ import "./AllMovies.css";
 import Filter from "./Filter";
 import Movie from "./Movie";
 
-const AllMovies = () => {
-  const [url, setUrl] = useState(
-    "https://movie-task.vercel.app/api/popular?page=1"
-  );
+const AllMovies = ({ url }) => {
   const [realMovieList, setRealMovieList] = useState(null);
   const [movieList, setMovieList] = useState(null);
+  const [isLoading, setLoading] = useState(true);
   const [year, setYear] = useState("all");
   const { searchQuery } = useParams();
 
   const fetchData = useCallback(() => {
+    setLoading(true);
     fetch(url)
       .then((response) => response.json())
       .then((jsonData) => {
         setRealMovieList(jsonData.data.results);
         setMovieList(jsonData.data.results);
+        setLoading(false);
       });
   }, [url]);
 
   const handleYearChanges = (yearValue) => {
     setYear(yearValue);
   };
-
-  useEffect(() => {
-    if (searchQuery == null || searchQuery === "") {
-      setUrl("https://movie-task.vercel.app/api/popular?page=1");
-    } else {
-      setUrl(
-        "https://movie-task.vercel.app/api/search?page=1&query=" + searchQuery
-      );
-    }
-  });
 
   useEffect(() => {
     if (year == null || year === "all") {
@@ -60,10 +50,10 @@ const AllMovies = () => {
           searchParam={searchQuery}
         />
       )}
-      {movieList == null ? (
+      {isLoading ? (
         <div className="Loading">Loading...</div>
       ) : movieList.length === 0 ? (
-        <div className="Loading">No results found :-{"("}</div>
+        <div className="Loading">No Movies found :-{"("}</div>
       ) : (
         <>
           <div className="movieContainer">

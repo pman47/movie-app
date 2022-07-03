@@ -29,6 +29,22 @@
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+.backArrow {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 2rem;
+  left: 0;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding-right: 0.5rem;
+  border-top-right-radius: 0.9rem;
+  border-bottom-right-radius: 0.9rem;
+}
+
 .littleDetails {
   text-align: center;
   margin: 0 auto;
@@ -160,16 +176,42 @@
     margin-top: 1rem;
   }
 
-  .genresContainer {
-    display: inline-flex;
-    flex-direction: column;
-  }
-
   .genresContainer .gerne {
-    margin: 0;
     margin: 0.5rem 0 0 1rem;
   }
   .arrow {
     bottom: 20px;
+  }
+}
+
+@media (max-width: 450px) {
+  .movieName {
+    font-size: 2.2rem;
+  }
+  .tagline {
+    font-size: 1.5rem;
+  }
+
+  .image_DetailContainer .right .title {
+    font-size: 2rem;
+  }
+  .image_DetailContainer .right .description {
+    font-size: 1.1rem;
+  }
+
+  .image_DetailContainer .right .releaseDate {
+    font-size: 1rem;
+  }
+
+  .image_DetailContainer .right .runtime {
+    font-size: 1rem;
+  }
+
+  .image_DetailContainer .right .voteDetails {
+    font-size: 0.8rem;
+  }
+
+  .arrow {
+    bottom: 70px;
   }
 }

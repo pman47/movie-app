@@ -11,14 +11,6 @@ const Filter = ({ movies, yearHandler }) => {
   let years = [];
   years = AllYears.filter((year, index) => AllYears.indexOf(year) === index);
 
-  // let searchTimeOut;
-  // const handleSearches = (searchValue) => {
-  //   clearTimeout(searchTimeOut);
-  //   searchTimeOut = window.setTimeout(() => {
-  //     navigate(`/${searchValue}`);
-  //   }, 700);
-  // };
-
   useEffect(() => {
     let timeOut = window.setTimeout(() => {
       navigate(`/${search}`);

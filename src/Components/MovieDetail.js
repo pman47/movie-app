@@ -1,17 +1,24 @@
 import React, { useCallback, useEffect, useState } from "react";
 import "./MovieDetail.css";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
+import { FiChevronLeft } from "react-icons/fi";
 
 const MovieDetail = () => {
   const [movieData, setMovieData] = useState(null);
+  const [isLoading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   let { movieId } = useParams();
   let url = "https://movie-task.vercel.app/api/movie?movieId=" + movieId;
 
   const fetchMovieData = useCallback(() => {
+    setLoading(true);
     fetch(url)
       .then((response) => response.json())
-      .then((jsonData) => setMovieData(jsonData.data));
+      .then((jsonData) => {
+        setMovieData(jsonData.data);
+        setLoading(false);
+      });
   }, [url]);
 
   useEffect(() => {
@@ -37,10 +44,18 @@ const MovieDetail = () => {
     var runtime = movieData.runtime;
   }
 
-  return movieData == null ? (
+  return isLoading ? (
     <div className="Loading">Loading...</div>
   ) : (
     <div className="movieMoreDetailContainer">
+      <button
+        className="backArrow"
+        onClick={() => {
+          navigate(-1);
+        }}
+      >
+        <FiChevronLeft />
+      </button>
       <div className="BackgroundContainer">
         <img className="BackgroundPoster" src={backPoster} alt="Movie Poster" />
       </div>
